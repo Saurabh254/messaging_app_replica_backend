@@ -1,8 +1,10 @@
-from fastapi import FastAPI
-from api.base import router
-from fastapi.middleware.cors import CORSMiddleware
-from brotli_asgi import BrotliMiddleware
 from contextlib import asynccontextmanager
+
+from brotli_asgi import BrotliMiddleware
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
+from api.base import router
 
 
 @asynccontextmanager

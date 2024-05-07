@@ -1,7 +1,9 @@
-from sqlalchemy.orm import declarative_mixin, Mapped, declared_attr, mapped_column
-from sqlalchemy import Integer, String, DateTime
-from nanoid import generate
 from datetime import datetime
+
+from nanoid import generate
+from sqlalchemy import DateTime, String
+from sqlalchemy.orm import Mapped, declarative_mixin, declared_attr, mapped_column
+
 from .db import Base
 
 

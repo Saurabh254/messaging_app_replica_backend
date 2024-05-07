@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends
-from api.database import db
 from sqlalchemy.orm import Session
-from sqlalchemy import text
+
+from api.database import db
 
 router = APIRouter(prefix="/users", tags=["users"])
 

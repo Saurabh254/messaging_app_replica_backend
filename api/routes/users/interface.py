@@ -1,6 +1,8 @@
 from sqlalchemy.orm import Session
-from . import models, schemas, errors
+
 from api.utils.auth import auth_bearer
+
+from . import errors, models, schemas
 
 
 def create_user(phone: str, hashed_password: str, db: Session):

@@ -6,10 +6,11 @@ from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from jose import JWTError, jwt
 from passlib.context import CryptContext
 from pydantic import BaseModel
-from api.database import db
 from sqlalchemy.orm import Session
-from api.routes.users import models as users_model
+
+from api.database import db
 from api.routes.users import interface as users_interface
+from api.routes.users import models as users_model
 
 # to get a string like this run:
 # openssl rand -hex 32

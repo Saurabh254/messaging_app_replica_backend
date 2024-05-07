@@ -25,4 +25,5 @@ class MyMixin:
     __mapper_args__ = {"always_refresh": True}
 
 
-class BaseModel(MyMixin, Base): ...
+class BaseModel(MyMixin, Base):
+    __abstract__ = True

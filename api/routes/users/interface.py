@@ -34,9 +34,6 @@ def user_login(phone: str, hashed_password: str, db: Session):
     db.add(user)
     db.commit()
     db.refresh(user)
-    data = {
-        "id": user.id,
-        "phone": user.phone,
-    }
+    data = {"id": user.id, "phone": user.phone, "hashed_password": user.hashed_password}
     access_token = auth_bearer.create_access_token(data=data)
     return {"access_token": access_token, "user": user}

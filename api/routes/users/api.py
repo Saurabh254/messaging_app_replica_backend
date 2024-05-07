@@ -2,8 +2,9 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
 from api.database import db
-
-from . import errors, interface, schemas
+from typing import Annotated
+from api.utils.auth import auth
+from . import errors, interface, schemas, models
 
 router = APIRouter(prefix="/users", tags=["users"])
 
@@ -17,3 +18,8 @@ async def login(data: schemas.LoginUser, db: Session = Depends(db.get_db)):
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.get("/me", response_model=schemas.SlimUser)
+async def get_me(current_user: Annotated[models.Users, Depends(auth.get_current_user)]):
+    return current_user

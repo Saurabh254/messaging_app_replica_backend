@@ -46,7 +46,6 @@ def decodeJWT(token: str) -> dict:
     try:
         decoded_token = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
         expiration = parser.parse(decoded_token["expiration"])
-        print(expiration)
         return decoded_token if expiration >= datetime.now() else None
     except Exception as e:
         return {}
